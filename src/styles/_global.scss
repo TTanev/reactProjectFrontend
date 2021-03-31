@@ -1,0 +1,40 @@
+@use "variables";
+
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background: variables.$bg;
+  font-size: 1.6rem;
+}
+
+a {
+  text-decoration: none;
+
+  :hover {
+    color: variables.$secondaryDark;
+  }
+  :active {
+    color: variables.$secondaryLight;
+  }
+}
+
+h1 {
+  font-size: 4rem;
+}
+h2 {
+  font-size: 3.6rem;
+}
+h3 {
+  font-size: 2.4rem;
+}
+h4 {
+  font-size: 1.8rem;
+}
