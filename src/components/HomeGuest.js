@@ -1,8 +1,22 @@
-import React, { useEffect } from "react"
-import { Link } from "react-router-dom"
+import React, { useState } from "react"
 import Page from "./Page"
+import Axios from "axios"
 
 function HomeGuest() {
+  const [username, setUsername] = useState()
+  const [email, setEmail] = useState()
+  const [password, setPassword] = useState()
+
+  async function handleSubmit(e) {
+    e.preventDefault()
+    try {
+      await Axios.post("/register", { username, email, password })
+      console.log("user registered")
+    } catch (e) {
+      console.log("problem with submit request")
+    }
+  }
+
   return (
     <Page title="HomeGues">
       <div className="home">
@@ -11,27 +25,27 @@ function HomeGuest() {
           <p className="">Do you need an to manage tasks between your friends when creating a big event? Then use our app! We will offer easy workflow solutions through easy task creation, destribution and traking! Now we are just offering a chat for all group friends and chance to follow where they are on their tasks.</p>
         </div>
         <div className="home__right">
-          <form>
+          <form onSubmit={handleSubmit}>
             <div className="">
               <label htmlFor="username-register" className="">
                 <small>Username</small>
               </label>
-              <input id="username-register" name="username" className="" type="text" placeholder="Pick a username" autoComplete="off" />
+              <input onChange={e => setUsername(e.target.value)} id="username-register" name="username" className="" type="text" placeholder="Pick a username" autoComplete="off" />
             </div>
             <div className="">
               <label htmlFor="email-register" className="">
                 <small>Email</small>
               </label>
-              <input id="email-register" name="email" className="" type="text" placeholder="you@example.com" autoComplete="off" />
+              <input onChange={e => setEmail(e.target.value)} id="email-register" name="email" className="" type="text" placeholder="you@example.com" autoComplete="off" />
             </div>
             <div className="">
               <label htmlFor="password-register" className="">
                 <small>Password</small>
               </label>
-              <input id="password-register" name="password" className="" type="password" placeholder="Create a password" />
+              <input onChange={e => setPassword(e.target.value)} id="password-register" name="password" className="" type="password" placeholder="Create a password" />
             </div>
             <button type="submit" className="">
-              Sign up for WorkManager
+              Become WorkManager
             </button>
           </form>
         </div>
