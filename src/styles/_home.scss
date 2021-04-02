@@ -1,0 +1,23 @@
+.home {
+  display: flex;
+  //   background: royalblue;
+  justify-content: space-between;
+
+  &__left {
+    max-width: 50rem;
+  }
+
+  &__right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    // background: green;
+    text-align: center;
+
+    form {
+      width: 24vw;
+      padding: 2rem;
+    }
+  }
+}

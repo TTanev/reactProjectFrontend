@@ -1,11 +1,24 @@
 // css variables better now
 :root {
   --text: #222;
+  --footerHeight: 9rem;
 }
-// sass variables
+// SASS VARIABLES
+// colors
 $bg: #dedede;
+$fc1: darkslateblue; //font color 1
 
 $primary: teal;
 $secondary: goldenrod;
 $secondaryDark: rgb(140, 100, 0);
 $secondaryLight: rgb(241, 218, 87);
+
+$formBg: beige;
+$formInput: tan;
+
+// other
+$bdS: 0.5rem;
+$bdM: 1rem;
+$bdL: 1.5rem;
+
+$footerHeight: 9rem;

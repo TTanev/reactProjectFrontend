@@ -1,3 +1,15 @@
+@use "variables";
+
 .wrapper {
-  width: 90vw;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.marginTB {
+  margin-top: 5rem;
+  margin-bottom: calc(5rem + var(--footerHeight));
+}
+
+.tac {
+  text-align: center;
 }

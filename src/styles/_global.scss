@@ -4,6 +4,7 @@
   padding: 0;
   margin: 0;
   border: 0;
+  box-sizing: border-box;
 }
 
 html {
@@ -12,17 +13,19 @@ html {
 
 body {
   background: variables.$bg;
-  font-size: 1.6rem;
+  color: variables.$fc1;
+  font-size: 1.8rem;
 }
 
 a {
   text-decoration: none;
+  cursor: pointer;
 
-  :hover {
-    color: variables.$secondaryDark;
-  }
-  :active {
+  &:hover {
     color: variables.$secondaryLight;
+  }
+  &:active {
+    color: variables.$secondaryDark;
   }
 }
 
@@ -38,3 +41,37 @@ h3 {
 h4 {
   font-size: 1.8rem;
 }
+
+button {
+  border: 1px solid variables.$secondaryDark;
+  // border-radius: variables.$bdS;
+  color: variables.$primary;
+  background: variables.$secondary;
+  padding: 0.5em;
+  transition: all 0.5s;
+
+  &:hover {
+    color: variables.$fc1;
+    cursor: pointer;
+    box-shadow: 2px 2px 1px 1px variables.$secondaryDark;
+  }
+
+  &:active {
+    box-shadow: inset 2px 2px 1px 1px variables.$secondaryDark;
+  }
+}
+
+form {
+  background: variables.$formBg;
+
+  input {
+    background: variables.$formInput;
+
+    &:focus {
+      box-shadow: 2px 2px 1px 1px variables.$secondaryLight;
+      color: variables.$fc1;
+    }
+  }
+}
+
+// CUSTOM
