@@ -1,31 +1,68 @@
-import React, { useEffect } from "react"
+import React, { useEffect, useState } from "react"
 import Page from "./Page"
+import { useParams, Link } from "react-router-dom"
+import Axios from "axios"
+import LoadingAnimation from "./LoadingAnimation"
+import ReactMarkdown from "react-markdown"
 
 function ViewSinglePost() {
+  const { id } = useParams()
+  const [isLoading, setIsLoading] = useState(true)
+  const [post, setPost] = useState()
+
+  useEffect(() => {
+    const currentRequest = Axios.CancelToken.source()
+
+    async function fetchPost() {
+      try {
+        const response = await Axios.get(`/post/${id}`, { cancelToken: currentRequest.token })
+        setPost(response.data)
+        setIsLoading(false)
+      } catch (error) {
+        console.log("Request error / cancelation")
+      }
+    }
+
+    fetchPost()
+
+    return () => {
+      curRequest.cancel()
+    }
+  }, [])
+
+  if (isLoading)
+    return (
+      <Page title="...">
+        <LoadingAnimation />
+      </Page>
+    )
+
+  const date = new Date(post.createdDate)
+  const dateFormatted = `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`
+
   return (
-    <Page title="hardcpded title">
+    <Page title={post.title}>
       <div className="singlePost__title">
-        <h2>Example Post Title</h2>
+        <h2>{post.title}</h2>
         <span className="">
-          <a href="#" className="singlePost__edit" title="Edit">
+          <Link to="#" className="singlePost__edit" title="Edit">
             <i className="fas fa-edit"></i>
-          </a>
-          <a className="singlePost__del" title="Delete">
+          </Link>
+          <Link to="#" className="singlePost__del" title="Delete">
             <i className="fas fa-trash"></i>
-          </a>
+          </Link>
         </span>
       </div>
 
       <p className="singlePost__info">
-        <a href="#">
-          <img className="singlePost__avatar" src={localStorage.getItem("tomappAvatar")} />
-        </a>
-        Posted by <a href="#">asdasda</a> on 4/3/2021
+        <Link to={`/profile/${post.author.username}`}>
+          <img className="avatar" src={post.author.avatar} />
+        </Link>
+        Posted by <Link to={`/profile/${post.author.username}`}>{post.author.username}</Link> on {dateFormatted}
       </p>
 
       <div className="singlePost__content">
-        <p>Some Post I wrote</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam maxime corporis consequatur nihil tempora tempore eaque exercitationem quos aliquid corrupti assumenda optio nesciunt in perferendis minus similique, dolore provident cumque possimus, officiis ut atque eveniet aspernatur voluptatum. Laudantium, numquam accusantium.</p>
+        <ReactMarkdown children={post.body} allowedTypes={["paragraph", "strong", "emphasis", "text", "heading", "list", "listItem"]} />
       </div>
     </Page>
   )

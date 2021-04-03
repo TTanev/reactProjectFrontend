@@ -1,0 +1,58 @@
+@use "variables";
+
+.profileTitle,
+.profileCounts,
+.profilePosts {
+  width: 70rem;
+  margin: 0 auto 2rem auto;
+}
+
+.profileTitle {
+  display: flex;
+  align-items: center;
+
+  & > * {
+    margin-right: 1.5rem;
+  }
+}
+
+.profileCounts {
+  & > * {
+    margin-right: 1.5rem;
+    color: variables.$primary;
+
+    &:hover {
+      color: variables.$fc1;
+    }
+  }
+}
+
+.profilePosts {
+  border: 1px solid variables.$secondary;
+  display: flex;
+  flex-direction: column;
+
+  & > *:not(:last-child) {
+    border-bottom: 1px solid variables.$secondary;
+  }
+}
+
+.profilePost {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem;
+  color: variables.$primary;
+
+  &:hover {
+    color: variables.$fc1;
+  }
+
+  img {
+    display: block;
+  }
+
+  span:nth-child(2) {
+    font-weight: bold;
+    padding: 0 1rem;
+  }
+}

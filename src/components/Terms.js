@@ -1,4 +1,5 @@
 import React, { useEffect } from "react"
+import LoadingAnimation from "./LoadingAnimation"
 import Page from "./Page"
 
 function Terms() {

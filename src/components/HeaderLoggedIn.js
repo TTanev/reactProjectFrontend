@@ -20,9 +20,9 @@ function HeaderLoggedIn(props) {
         <i className="fas fa-comment"></i>
         <span className=""> </span>
       </span>
-      <a href="#" className="header__avatar">
+      <Link to={`/profile/${appState.user.username}`} className="header__avatar">
         <img className="" src={appState.user.avatar} />
-      </a>
+      </Link>
       <Link className="button tac" to="/create-post">
         Create Post
       </Link>

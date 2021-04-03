@@ -5,7 +5,7 @@ function Page(props) {
   useEffect(() => {
     document.title = `${props.title} | App`
     window.scrollTo(0, 0)
-  }, [])
+  }, [props.title])
 
   return <Container tac={props.tac}>{props.children}</Container>
 }

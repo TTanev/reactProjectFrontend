@@ -35,11 +35,12 @@
       color: variables.$secondary;
     }
   }
-}
 
-.singlePost__avatar {
-  display: block;
-  height: 2.4rem;
-  width: 2.4rem;
-  margin-right: 1rem;
+  a:not(:first-child) {
+    padding: 0 1rem;
+  }
+
+  .avatar {
+    margin-right: 1rem;
+  }
 }
