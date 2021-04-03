@@ -1,0 +1,41 @@
+@keyframes flashAnimation {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) scale(1.5);
+  }
+  10% {
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
+  }
+  90% {
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-50%) scale(1.5);
+  }
+}
+
+.flashMessage {
+  opacity: 0;
+  position: fixed;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%) scale(1.5);
+  padding: 2rem;
+  //   animation: name duration timing-function delay iteration-count direction fill-mode;
+  animation-name: flashAnimation;
+  animation-duration: 4s;
+  animation-iteration-count: 1;
+
+  &--success {
+    background: darkgreen;
+    color: lime;
+  }
+
+  &--fail {
+    background: darkred;
+    color: red;
+  }
+}

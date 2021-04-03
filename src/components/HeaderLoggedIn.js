@@ -1,12 +1,14 @@
-import React, { useEffect } from "react"
+import React, { useEffect, useContext } from "react"
 import { Link } from "react-router-dom"
+import StateContext from "../StateContext"
+import DispatchContext from "../DispatchContext"
 
 function HeaderLoggedIn(props) {
+  const appState = useContext(StateContext)
+  const appDispatch = useContext(DispatchContext)
+
   function handleLogout() {
-    props.setLoggedIn(false)
-    localStorage.removeItem("tomappToken")
-    localStorage.removeItem("tomappUsername")
-    localStorage.removeItem("tomappAvatar")
+    appDispatch({ type: "logout" })
   }
 
   return (
@@ -19,7 +21,7 @@ function HeaderLoggedIn(props) {
         <span className=""> </span>
       </span>
       <a href="#" className="">
-        <img className="" src={localStorage.getItem("tomappAvatar")} />
+        <img className="" src={appState.user.avatar} />
       </a>
       <Link className="" to="/create-post">
         Create Post

@@ -1,15 +1,27 @@
-import React, { useEffect } from "react"
-import { Link } from "react-router-dom"
+import React, { useEffect, useState, useContext } from "react"
+import { withRouter } from "react-router-dom"
 import Page from "./Page"
 import Axios from "axios"
+import StateContext from "../StateContext"
+import DispatchContext from "../DispatchContext"
 
-function CreatePost() {
-  async function handleSubmit() {
+function CreatePost(props) {
+  const [title, setTitle] = useState()
+  const [body, setBody] = useState()
+  const appState = useContext(StateContext)
+  const appDispatch = useContext(DispatchContext)
+
+  async function handleSubmit(e) {
+    e.preventDefault()
     try {
-      await Axios.post("/create-post", { title: "Test Title", body: "Test content here", token: localStorage.getItem("tomappToken") })
-      console.log("new post created")
+      const response = await Axios.post("/create-post", { title, body, token: appState.user.token })
+      // redirect to new post
+      appDispatch({ type: "flashMessage", value: "Post created!" })
+      props.history.push(`/post/${response.data}`)
+      console.log("New post created.")
+      console.log(response.data)
     } catch (e) {
-      console.log("problem with create post request")
+      console.log("Problem with create post request!")
     }
   }
 
@@ -20,14 +32,14 @@ function CreatePost() {
           <label htmlFor="post-title" className="">
             <small>Title</small>
           </label>
-          <input autoFocus name="title" id="post-title" className="" type="text" placeholder="title" autoComplete="off" />
+          <input onChange={e => setTitle(e.target.value)} autoFocus name="title" id="post-title" className="" type="text" placeholder="title" autoComplete="off" />
         </div>
 
         <div className="">
           <label htmlFor="post-body" className="">
             <small>Post Content</small>
           </label>
-          <textarea name="body" id="post-body" className="" type="text"></textarea>
+          <textarea onChange={e => setBody(e.target.value)} name="body" id="post-body" className="" type="text"></textarea>
         </div>
 
         <button className="button">Create Post</button>
@@ -36,4 +48,4 @@ function CreatePost() {
   )
 }
 
-export default CreatePost
+export default withRouter(CreatePost)
