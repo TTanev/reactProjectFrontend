@@ -15,6 +15,7 @@ body {
   background: variables.$bg;
   color: variables.$fc1;
   font-size: 1.8rem;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 a {
@@ -42,13 +43,16 @@ h4 {
   font-size: 1.8rem;
 }
 
+.button,
 button {
   border: 1px solid variables.$secondaryDark;
   // border-radius: variables.$bdS;
   color: variables.$primary;
   background: variables.$secondary;
-  padding: 0.5em;
+  padding: 0.5em 1em;
   transition: all 0.5s;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.6rem;
 
   &:hover {
     color: variables.$fc1;
@@ -64,8 +68,17 @@ button {
 form {
   background: variables.$formBg;
 
+  label {
+    display: block;
+    text-transform: uppercase;
+  }
+
   input {
     background: variables.$formInput;
+    width: 90%;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+    display: block;
 
     &:focus {
       box-shadow: 2px 2px 1px 1px variables.$secondaryLight;
@@ -74,4 +87,33 @@ form {
   }
 }
 
+.createPost__form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  max-width: 70rem;
+  margin: 0 auto;
+  padding: 2rem 0;
+
+  input {
+    margin: 2rem auto;
+    width: 90%;
+  }
+
+  textarea {
+    display: block;
+    width: 90%;
+    margin: 2rem auto;
+    resize: none;
+    min-height: 30rem;
+  }
+
+  div {
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+  }
+}
 // CUSTOM

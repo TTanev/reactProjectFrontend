@@ -1,0 +1,45 @@
+@use "variables";
+
+.singlePost__title,
+.singlePost__info,
+.singlePost__content {
+  max-width: 70rem;
+  margin: 0 auto;
+}
+
+.singlePost__title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.singlePost__edit {
+  color: variables.$primary;
+  margin-right: 2rem;
+}
+
+.singlePost__del {
+  color: darkred;
+}
+
+.singlePost__info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+
+  a {
+    color: variables.$primary;
+
+    &:hover {
+      color: variables.$secondary;
+    }
+  }
+}
+
+.singlePost__avatar {
+  display: block;
+  height: 2.4rem;
+  width: 2.4rem;
+  margin-right: 1rem;
+}

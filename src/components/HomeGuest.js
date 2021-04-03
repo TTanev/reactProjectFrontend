@@ -25,27 +25,27 @@ function HomeGuest() {
           <p className="">Do you need an to manage tasks between your friends when creating a big event? Then use our app! We will offer easy workflow solutions through easy task creation, destribution and traking! Now we are just offering a chat for all group friends and chance to follow where they are on their tasks.</p>
         </div>
         <div className="home__right">
-          <form onSubmit={handleSubmit}>
-            <div className="">
+          <form onSubmit={handleSubmit} className="">
+            <div className="home__inpDiv">
               <label htmlFor="username-register" className="">
                 <small>Username</small>
               </label>
               <input onChange={e => setUsername(e.target.value)} id="username-register" name="username" className="" type="text" placeholder="Pick a username" autoComplete="off" />
             </div>
-            <div className="">
+            <div className="home__inpDiv">
               <label htmlFor="email-register" className="">
                 <small>Email</small>
               </label>
               <input onChange={e => setEmail(e.target.value)} id="email-register" name="email" className="" type="text" placeholder="you@example.com" autoComplete="off" />
             </div>
-            <div className="">
+            <div className="home__inpDiv">
               <label htmlFor="password-register" className="">
                 <small>Password</small>
               </label>
               <input onChange={e => setPassword(e.target.value)} id="password-register" name="password" className="" type="password" placeholder="Create a password" />
             </div>
             <button type="submit" className="">
-              Become WorkManager
+              Become Work Manager
             </button>
           </form>
         </div>

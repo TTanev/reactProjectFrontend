@@ -27,15 +27,15 @@ function CreatePost(props) {
 
   return (
     <Page title="Create New Post">
-      <form onSubmit={handleSubmit}>
-        <div className="">
+      <form onSubmit={handleSubmit} className="createPost__form">
+        <div className="createPost__title">
           <label htmlFor="post-title" className="">
             <small>Title</small>
           </label>
           <input onChange={e => setTitle(e.target.value)} autoFocus name="title" id="post-title" className="" type="text" placeholder="title" autoComplete="off" />
         </div>
 
-        <div className="">
+        <div className="createPost__title">
           <label htmlFor="post-body" className="">
             <small>Post Content</small>
           </label>

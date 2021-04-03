@@ -12,21 +12,21 @@ function HeaderLoggedIn(props) {
   }
 
   return (
-    <div className="">
-      <a href="#" className="">
+    <div className="header__rightContainer">
+      <a href="#" className="header__icon">
         <i className="fas fa-search"></i>
       </a>
-      <span className="">
+      <span className="header__icon">
         <i className="fas fa-comment"></i>
         <span className=""> </span>
       </span>
-      <a href="#" className="">
+      <a href="#" className="header__avatar">
         <img className="" src={appState.user.avatar} />
       </a>
-      <Link className="" to="/create-post">
+      <Link className="button tac" to="/create-post">
         Create Post
       </Link>
-      <button onClick={handleLogout} className="">
+      <button onClick={handleLogout} className="button">
         Sign Out
       </button>
     </div>

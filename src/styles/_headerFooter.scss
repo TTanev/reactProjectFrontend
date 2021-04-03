@@ -3,6 +3,7 @@
 .header {
   background-color: variables.$primary;
   padding: 0.7rem;
+  height: 6rem;
 
   .wrapper {
     margin: 0 auto;
@@ -24,11 +25,45 @@
 
   &__inputBox {
     margin-right: 2rem;
+
+    input {
+      margin: auto;
+    }
   }
 
   &__formContainer {
     display: flex;
     align-items: center;
+  }
+
+  // headerLoggedIn
+  &__rightContainer {
+    // background-color: darkred;
+    display: flex;
+    align-items: center;
+
+    & > *:not(:last-child) {
+      margin-right: 2rem;
+    }
+  }
+
+  &__icon {
+    color: variables.$secondary;
+
+    svg:hover {
+      color: variables.$secondaryLight;
+      cursor: pointer;
+    }
+  }
+
+  &__avatar {
+    display: block;
+
+    img {
+      height: 3.2rem;
+      width: 3.2rem;
+      display: block;
+    }
   }
 }
 
@@ -39,7 +74,7 @@
   text-align: center;
   height: var(--footerHeight);
 
-  position: fixed;
+  position: absolute;
   bottom: 0;
   width: 100%;
 
