@@ -92,14 +92,32 @@ form {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  position: relative;
 
   max-width: 70rem;
   margin: 0 auto;
   padding: 2rem 0;
 
+  .createPost__title {
+    position: relative;
+  }
+
+  .backLink {
+    position: absolute;
+    top: 1.2rem;
+    left: 3rem;
+    font-size: 2.5rem;
+    z-index: 1000;
+
+    &:hover {
+      color: black;
+    }
+  }
+
   input {
     margin: 2rem auto;
     width: 90%;
+    height: 4rem;
   }
 
   textarea {

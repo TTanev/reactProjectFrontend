@@ -4,6 +4,7 @@ import { useParams, Link } from "react-router-dom"
 import Axios from "axios"
 import LoadingAnimation from "./LoadingAnimation"
 import ReactMarkdown from "react-markdown"
+import NotFound from "./NotFound"
 
 function ViewSinglePost() {
   const { id } = useParams()
@@ -26,9 +27,13 @@ function ViewSinglePost() {
     fetchPost()
 
     return () => {
-      curRequest.cancel()
+      currentRequest.cancel()
     }
   }, [])
+
+  if (!isLoading && !post) {
+    return <NotFound />
+  }
 
   if (isLoading)
     return (
@@ -45,7 +50,7 @@ function ViewSinglePost() {
       <div className="singlePost__title">
         <h2>{post.title}</h2>
         <span className="">
-          <Link to="#" className="singlePost__edit" title="Edit">
+          <Link to={`/post/${post._id}/edit`} className="singlePost__edit" title="Edit">
             <i className="fas fa-edit"></i>
           </Link>
           <Link to="#" className="singlePost__del" title="Delete">

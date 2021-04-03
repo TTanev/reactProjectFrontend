@@ -28,6 +28,7 @@
   animation-name: flashAnimation;
   animation-duration: 4s;
   animation-iteration-count: 1;
+  z-index: 9000;
 
   &--success {
     background: darkgreen;
@@ -37,6 +38,36 @@
   &--fail {
     background: darkred;
     color: red;
+  }
+}
+
+// FORM ERROR MSG
+.formError {
+  display: block;
+  position: absolute;
+  padding: 0.5rem 1rem;
+  opacity: 0;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: darkred;
+  color: red;
+  animation: formError 0.5s linear 1 forwards;
+}
+.posr {
+  position: relative;
+}
+
+@keyframes formError {
+  0% {
+    opacity: 0;
+    top: 0;
+    left: 50%;
+  }
+  100% {
+    opacity: 1;
+    left: 50%;
+    top: -4rem;
   }
 }
 
@@ -104,4 +135,10 @@
     filter: blur(3px);
     transform: scale(1.4);
   }
+}
+
+// 404 page NOT FOUND
+
+.pageNotFound {
+  text-align: center;
 }
