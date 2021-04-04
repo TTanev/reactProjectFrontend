@@ -3,11 +3,11 @@ import React, { useEffect } from "react"
 function LoadingAnimation() {
   return (
     <div className="loadingAniContainer">
-      <div class="container">
-        <div class="aniDot1"></div>
-        <div class="aniDot2"></div>
-        <div class="aniDot3"></div>
-        <div class="aniDot4"></div>
+      <div className="container">
+        <div className="aniDot1"></div>
+        <div className="aniDot2"></div>
+        <div className="aniDot3"></div>
+        <div className="aniDot4"></div>
       </div>
     </div>
   )
