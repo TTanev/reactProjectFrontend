@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react"
 import Axios from "axios"
 import { useParams, Link } from "react-router-dom"
 import LoadingAnimation from "./LoadingAnimation"
+import Post from "./Post"
 
 function ProfilePosts() {
   const { username } = useParams()
@@ -30,15 +31,7 @@ function ProfilePosts() {
   return (
     <div className="profilePosts">
       {posts.map(post => {
-        const date = new Date(post.createdDate)
-        const dateFormatted = `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`
-
-        return (
-          <Link key={post._id} to={`/post/${post._id}`} className="profilePost">
-            <img className="avatar" src={post.author.avatar} /> <span>{post.title}</span>
-            <span className="">on {dateFormatted} </span>
-          </Link>
-        )
+        return <Post noAuthor={true} post={post} key={post.key} />
       })}
     </div>
   )

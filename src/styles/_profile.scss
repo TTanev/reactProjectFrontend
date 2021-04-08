@@ -25,6 +25,13 @@
       color: variables.$fc1;
     }
   }
+
+  &__active {
+    color: variables.$secondaryDark;
+    border-top: 2px solid variables.$secondaryDark;
+    border-bottom: 2px solid variables.$secondaryDark;
+    padding: 0.5rem 0;
+  }
 }
 
 .profilePosts {
@@ -49,6 +56,10 @@
 
   img {
     display: block;
+  }
+
+  strong {
+    padding: 0 1rem;
   }
 
   span:nth-child(2) {

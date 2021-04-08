@@ -1,0 +1,71 @@
+@use "variables";
+
+.searchModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: variables.$bg;
+  width: 100vw;
+  height: 100vh;
+
+  & > * {
+    width: 60%;
+    margin: 0 auto;
+  }
+}
+
+.searchTop {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  // height: 6rem;
+  padding: 3rem;
+  border-bottom: 1px solid variables.$fc1;
+  font-size: 4rem;
+
+  input {
+    height: 4rem;
+    margin: 0 2rem;
+
+    font-size: 3.6rem;
+  }
+
+  &__close {
+    cursor: pointer;
+  }
+}
+
+.searchBottom {
+  padding-top: 4rem;
+
+  .resultsListHeading {
+    padding: 2rem;
+    background: variables.$secondary;
+  }
+
+  .profilePosts {
+    max-height: 40rem;
+    overflow: scroll;
+  }
+}
+
+// CSS Transition
+.searchModal-enter {
+  opacity: 0;
+  transform: scale(1.2);
+}
+.searchModal-enter-active {
+  opacity: 1;
+  transform: scale(1);
+  transition: all 0.4s ease-in-out;
+}
+.searchModal-exit {
+  opacity: 0.5;
+  transform: scale(1);
+}
+.searchModal-exit-active {
+  opacity: 0;
+  transform: scale(1.2);
+  transition: all 0.4s ease-in-out;
+}

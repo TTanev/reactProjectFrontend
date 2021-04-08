@@ -11,9 +11,14 @@ function HeaderLoggedIn(props) {
     appDispatch({ type: "logout" })
   }
 
+  function handleSearchIcon(e) {
+    e.preventDefault(e)
+    appDispatch({ type: "openSearch" })
+  }
+
   return (
     <div className="header__rightContainer">
-      <a href="#" className="header__icon">
+      <a onClick={handleSearchIcon} href="#" className="header__icon">
         <i className="fas fa-search"></i>
       </a>
       <span className="header__icon">
