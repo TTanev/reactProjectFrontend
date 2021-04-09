@@ -1,0 +1,65 @@
+@use "variables";
+
+.chat {
+  display: block;
+  position: absolute;
+  bottom: var(--footerHeight);
+  right: 5%;
+  width: 28rem;
+  max-height: 30rem;
+  background: variables.$formBg;
+  border: 1px solid variables.$fc1;
+  font-size: 1.4rem;
+
+  transition: all 0.3s;
+  opacity: 0;
+  z-index: -1;
+
+  &--isVisible {
+    opacity: 1;
+    z-index: 1;
+  }
+
+  & > * {
+    padding: 1rem;
+  }
+
+  &__title {
+    background: variables.$primary;
+    display: flex;
+    justify-content: space-between;
+
+    span:hover {
+      color: variables.$secondary;
+      cursor: pointer;
+    }
+  }
+}
+
+.chatLog {
+  overflow-y: scroll;
+  max-height: 20rem;
+
+  &__me {
+    display: flex;
+    justify-content: end;
+
+    .chatLog__message {
+      align-self: end;
+    }
+  }
+
+  &__you {
+    display: flex;
+    padding-top: 1rem;
+  }
+}
+
+.chatForm {
+  border-top: 1px solid variables.$fc1;
+  padding: 0 1rem;
+
+  input {
+    width: 100%;
+  }
+}

@@ -9,9 +9,13 @@
   }
 }
 
+.mainHeight {
+  min-height: calc(100vh - var(--headerHeight) - var(--footerHeight));
+}
+
 .marginTB {
-  margin-top: 5rem;
-  margin-bottom: calc(5rem + var(--footerHeight));
+  padding-top: 5rem;
+  padding-bottom: 5rem;
 }
 
 .marginBs {

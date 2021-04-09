@@ -21,9 +21,15 @@ function HeaderLoggedIn(props) {
       <a onClick={handleSearchIcon} href="#" className="header__icon">
         <i className="fas fa-search"></i>
       </a>
-      <span className="header__icon">
+      <span
+        style={{ position: "relative" }}
+        onClick={() => {
+          appDispatch({ type: "toggleChat" })
+        }}
+        className={"header__icon " + (appState.unreadMessages ? "colorDR" : "")}
+      >
         <i className="fas fa-comment"></i>
-        <span className=""> </span>
+        {appState.unreadMessages ? <span className="header__notification">{appState.unreadMessages < 10 ? appState.unreadMessages : "9+"}</span> : ""}
       </span>
       <Link to={`/profile/${appState.user.username}`} className="header__avatar">
         <img className="" src={appState.user.avatar} />

@@ -3,7 +3,7 @@
 .header {
   background-color: variables.$primary;
   padding: 0.7rem;
-  height: 6rem;
+  height: var(--headerHeight);
 
   .wrapper {
     margin: 0 auto;
@@ -54,6 +54,14 @@
       color: variables.$secondaryLight;
       cursor: pointer;
     }
+  }
+
+  &__notification {
+    position: absolute;
+    top: 2;
+    right: 1;
+    background: red;
+    border-radius: 50%;
   }
 
   &__avatar {

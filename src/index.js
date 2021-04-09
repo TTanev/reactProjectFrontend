@@ -25,6 +25,7 @@ import Profile from "./components/Profile"
 import EditPost from "./components/EditPost"
 import NotFound from "./components/NotFound"
 import Search from "./components/Search"
+import Chat from "./components/Chat"
 
 function Main() {
   const initialState = {
@@ -36,6 +37,8 @@ function Main() {
       avatar: localStorage.getItem("tomappAvatar"),
     },
     isSearchOpen: false,
+    isChatOpen: false,
+    unreadMessages: 0,
   }
 
   function appReducer(draft, action) {
@@ -55,6 +58,18 @@ function Main() {
         return
       case "closeSearch":
         draft.isSearchOpen = false
+        return
+      case "toggleChat":
+        draft.isChatOpen = !draft.isChatOpen
+        return
+      case "closeChat":
+        draft.isChatOpen = false
+        return
+      case "addUnread":
+        draft.unreadMessages++
+        return
+      case "resetUnread":
+        draft.unreadMessages = 0
         return
     }
   }
@@ -108,6 +123,7 @@ function Main() {
           <CSSTransition timeout={400} in={state.isSearchOpen} classNames="searchModal" unmountOnExit>
             <Search />
           </CSSTransition>
+          <Chat />
           <Footer />
         </BrowserRouter>
       </DispatchContext.Provider>
