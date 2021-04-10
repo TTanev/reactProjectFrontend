@@ -88,6 +88,25 @@ function Main() {
     }
   }, [state.loggedIn])
 
+  useEffect(() => {
+    if (state.loggedIn) {
+      const currentReques = Axios.CancelToken.source()
+      async function fetchResults() {
+        try {
+          const response = await Axios.post("/checkToken", { token: state.user.token }, { cancelToken: currentReques.token })
+          if (!response.data) {
+            dispatch({ type: "logout" })
+            dispatch({ type: "flashMessage", value: "Token expired. Login again!" })
+          }
+        } catch (error) {
+          console.log("Search request problem / cancelation")
+        }
+      }
+      fetchResults()
+      return () => currentReques.cancel()
+    }
+  }, [])
+
   return (
     <StateContext.Provider value={state}>
       <DispatchContext.Provider value={dispatch}>

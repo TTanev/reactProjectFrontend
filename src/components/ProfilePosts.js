@@ -31,7 +31,7 @@ function ProfilePosts() {
   return (
     <div className="profilePosts">
       {posts.map(post => {
-        return <Post noAuthor={true} post={post} key={post.key} />
+        return <Post noAuthor={true} post={post} key={post._id} />
       })}
     </div>
   )

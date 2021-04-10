@@ -17,7 +17,7 @@
     text-align: center;
 
     form {
-      width: 24vw;
+      width: 45vw;
       padding: 2rem;
 
       // label {
@@ -28,7 +28,12 @@
       input {
         width: 100%;
         display: block;
+        font-size: 1.8rem;
       }
     }
+  }
+
+  &__inpDiv {
+    position: relative;
   }
 }
