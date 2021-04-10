@@ -73,7 +73,7 @@ function Search() {
   }
 
   return (
-    <div className="searchModal">
+    <>
       <div className="searchTop">
         <label htmlFor="live-search-field" className="searchIcon">
           <i className="fas fa-search"></i>
@@ -98,7 +98,7 @@ function Search() {
           </div>
         )}
       </div>
-    </div>
+    </>
   )
 }
 

@@ -18,8 +18,8 @@ function CreatePost(props) {
       // redirect to new post
       appDispatch({ type: "flashMessage", value: "Post created!" })
       props.history.push(`/post/${response.data}`)
-      console.log("New post created.")
-      console.log(response.data)
+      // console.log("New post created.")
+      // console.log(response.data)
     } catch (e) {
       console.log("Problem with create post request!")
     }
